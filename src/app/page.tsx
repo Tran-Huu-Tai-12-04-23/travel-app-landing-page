@@ -1,7 +1,17 @@
+"use client";
 import { TracingBeamDemo } from "./components/TracingBeamDemo";
 import { Button } from "./components/ui/moving-border";
 
 export default function Home() {
+  const handleDownload = () => {
+    const fileUrl = "static/app/travel-app.apk";
+    const downloadAnchor = document.createElement("a");
+    downloadAnchor.href = fileUrl;
+    downloadAnchor.download = "travel-app.apk";
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    document.body.removeChild(downloadAnchor);
+  };
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-0">
       <video
@@ -17,8 +27,17 @@ export default function Home() {
       </video>
       <div className="h-[1px] bg-gray-500 w-full"></div>
       <div className="full flex justify-center gap-10 mt-5 mb-5 items-center">
-        <Button borderRadius="1.75rem">Download APK </Button>
-        <Button borderRadius="1.75rem">Download IOS File </Button>
+        <Button borderRadius="1.75rem" onClick={handleDownload}>
+          Download APK{" "}
+        </Button>
+        <Button
+          borderRadius="1.75rem"
+          onClick={() => {
+            alert("Ios file not available!");
+          }}
+        >
+          Download IOS File{" "}
+        </Button>
       </div>
 
       <TracingBeamDemo />
