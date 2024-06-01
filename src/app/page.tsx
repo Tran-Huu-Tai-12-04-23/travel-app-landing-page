@@ -4,7 +4,7 @@ import { Button } from "./components/ui/moving-border";
 
 export default function Home() {
   const handleDownload = () => {
-    const fileUrl = "static/app/travel-app.apk";
+    const fileUrl = "static/app/app.apk";
     const downloadAnchor = document.createElement("a");
     downloadAnchor.href = fileUrl;
     downloadAnchor.download = "travel-app.apk";
